@@ -1,0 +1,307 @@
+/* Johan Mireles — static portfolio. No build step, no external assets. */
+
+:root {
+  --bg: #f4efe6;
+  --bg-alt: #ebe4d8;
+  --ink: #1c1916;
+  --muted: #5e584f;
+  --line: #d4cdbf;
+  --accent: #1f4f43;
+  --accent-hover: #16382f;
+  --card: #fbf8f2;
+  --sans: "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, "Times New Roman", serif;
+  --measure: 46rem;
+  --wide: 58rem;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background: var(--bg);
+  font-family: var(--sans);
+  font-size: 1.05rem;
+  line-height: 1.6;
+  text-rendering: optimizeLegibility;
+}
+
+a {
+  color: var(--accent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+
+a:hover {
+  color: var(--accent-hover);
+}
+
+a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.skip {
+  position: absolute;
+  left: 0.75rem;
+  top: -3rem;
+  background: var(--ink);
+  color: var(--bg);
+  padding: 0.5rem 0.75rem;
+  z-index: 10;
+}
+
+.skip:focus {
+  top: 0.75rem;
+  color: var(--bg);
+}
+
+.wrap {
+  width: min(var(--wide), calc(100% - 3rem));
+  margin-inline: auto;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.site-header {
+  padding: 3.25rem 0 2rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.header-grid {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1.5rem 3rem;
+  align-items: end;
+}
+
+.eyebrow {
+  margin: 0 0 0.35rem;
+  font-size: 0.82rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+h1 {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(2.6rem, 6vw, 4.25rem);
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+.header-meta {
+  text-align: right;
+}
+
+.relocate {
+  margin: 0 0 0.55rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.contact {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 0.95rem;
+}
+
+.contact li + li {
+  margin-top: 0.15rem;
+}
+
+.intro {
+  max-width: calc(var(--measure) + 3rem);
+  padding: 2.5rem 0 0.5rem;
+}
+
+.intro p {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(1.2rem, 2.2vw, 1.45rem);
+  line-height: 1.45;
+}
+
+section {
+  padding: 2.25rem 0;
+}
+
+section + section {
+  border-top: 1px solid var(--line);
+}
+
+h2 {
+  margin: 0 0 1.35rem;
+  font-size: 0.78rem;
+  font-weight: 650;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+h3 {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.meta,
+.org,
+.dates {
+  margin: 0.2rem 0 0;
+  color: var(--muted);
+}
+
+.dates {
+  white-space: nowrap;
+}
+
+.highlight-list {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.highlight-list article {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  padding: 1.35rem 1.4rem 1.15rem;
+}
+
+.highlight-list p:not(.meta) {
+  margin: 0.85rem 0 0.5rem;
+}
+
+.highlight-list ul,
+.experience ul {
+  margin: 0.35rem 0 0;
+  padding-left: 1.15rem;
+}
+
+.highlight-list li + li,
+.experience li li + li {
+  margin-top: 0.4rem;
+}
+
+.experience {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.experience > li + li {
+  margin-top: 1.75rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--line);
+}
+
+.job-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+  align-items: baseline;
+  margin-bottom: 0.65rem;
+}
+
+.skills {
+  margin: 0;
+  display: grid;
+  gap: 0.95rem 2rem;
+}
+
+.skills > div {
+  display: grid;
+  grid-template-columns: 11.5rem 1fr;
+  gap: 0.5rem 1.25rem;
+  align-items: start;
+}
+
+.skills dt {
+  margin: 0;
+  font-size: 0.82rem;
+  font-weight: 650;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding-top: 0.15rem;
+}
+
+.skills dd {
+  margin: 0;
+}
+
+.education .job-head {
+  margin-bottom: 0;
+}
+
+.site-footer {
+  margin-top: 1rem;
+  padding: 2rem 0 2.75rem;
+  border-top: 1px solid var(--line);
+  background: var(--bg-alt);
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.site-footer p {
+  margin: 0;
+}
+
+.site-footer p + p {
+  margin-top: 0.25rem;
+}
+
+@media (max-width: 720px) {
+  .wrap {
+    width: calc(100% - 2rem);
+  }
+
+  .site-header {
+    padding-top: 2rem;
+  }
+
+  .header-grid,
+  .job-head,
+  .skills > div {
+    grid-template-columns: 1fr;
+    display: grid;
+    text-align: left;
+  }
+
+  .header-meta,
+  .dates {
+    text-align: left;
+  }
+
+  .dates {
+    white-space: normal;
+  }
+
+  .intro {
+    padding-top: 1.75rem;
+  }
+}
